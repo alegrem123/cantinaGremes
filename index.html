@@ -2,9 +2,10 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cantina Gremes - Maso Plotegher, Aldeno</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
     :root {
       --color-primary: #7b1e1e;
@@ -13,90 +14,102 @@
       --font-title: 'Playfair Display', serif;
       --font-body: 'Open Sans', sans-serif;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: var(--font-body);
       background-color: var(--color-secondary);
       color: #333;
       line-height: 1.6;
     }
-
-    header {
-      background: url('immagini/hero.jpg') center/cover no-repeat;
-      color: white;
-      padding: 4rem 2rem;
+    .hero {
+      height: 100vh;
+      background: url('immagini/hero1.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
       text-align: center;
+      color: white;
+      flex-direction: column;
+      padding: 0 1rem;
     }
-
-    header h1 {
-      font-family: var(--font-title);
-      font-size: 3rem;
+    .hero-content {
+      display: inline-block;
+      position: relative;
+    }
+    .hero h1.typing {
+      font-family: 'Great Vibes', cursive;
+      font-size: 6rem;
+      color: #bfa76f;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #bfa76f;
+      width: 0;
+      animation: typing 3s steps(20, end) forwards, blink 0.7s step-end infinite;
       margin-bottom: 1rem;
     }
-
-    header p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 18ch }
     }
-
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+    #stemma {
+      opacity: 0;
+      width: 250px;
+      margin: 0 auto;
+      transition: opacity 1s ease;
+      filter: drop-shadow(0 0 4px rgba(183, 28, 28, 0.7));
+    }
     nav {
       background-color: var(--color-primary);
       display: flex;
       justify-content: center;
       padding: 1rem;
     }
-
     nav a {
       color: white;
       margin: 0 1rem;
       text-decoration: none;
       font-weight: 600;
     }
-
     section {
       padding: 3rem 2rem;
       max-width: 1000px;
       margin: auto;
     }
-
     section h2 {
       font-family: var(--font-title);
       font-size: 2rem;
       margin-bottom: 1rem;
       color: var(--color-primary);
     }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
     }
-
     .wine-card {
       background: white;
       padding: 1rem;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
     }
-
     .wine-card:hover {
       transform: translateY(-5px);
     }
-
     .wine-card img {
       width: 100%;
       border-radius: 6px;
       margin-bottom: 0.5rem;
     }
-
     footer {
       background-color: #111;
       color: white;
@@ -104,19 +117,25 @@
       padding: 2rem;
       font-size: 0.9rem;
     }
+   @media (max-width: 600px) {
+  #stemma {
+    width: 150px; /* dimezza la dimensione su mobile */
+  }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-    }
+  .hero h1.typing {
+    font-size: 2rem;
+  }
+}
+
   </style>
 </head>
 <body>
-  <header>
-    <h1>Cantina Gremes</h1>
-    <p>Dal cuore del Trentino Alto Adige, nel Maso Plotegher ad Aldeno, un vino che racconta la nostra terra.</p>
-  </header>
+  <div class="hero">
+    <div class="hero-content">
+      <h1 class="typing">Cantina Gremes</h1>
+      <img id="stemma" src="immagini/vino.png" alt="Stemma Cantina Gremes" />
+    </div>
+  </div>
 
   <nav>
     <a href="#chi-siamo">Chi Siamo</a>
@@ -125,41 +144,55 @@
     <a href="#contatti">Contatti</a>
   </nav>
 
-  <section id="chi-siamo">
+  <section id="chi-siamo" data-aos="fade-up">
     <h2>Chi Siamo</h2>
     <p>La Cantina Gremes nasce nella quiete del Maso Plotegher, un luogo dove la passione per il vino si tramanda di generazione in generazione. Coltiviamo con cura le nostre vigne, rispettando la natura e valorizzando i vitigni autoctoni.</p>
   </section>
 
-  <section id="vini">
+  <section id="vini" data-aos="fade-up">
     <h2>I Nostri Vini</h2>
     <div class="grid">
       <div class="wine-card">
-        <img src="https://source.unsplash.com/300x300/?red-wine" alt="Vino rosso">
+        <img src="https://source.unsplash.com/300x300/?red-wine" alt="Vino rosso" />
         <h3>Rosso Gremes</h3>
         <p>Un rosso elegante con note di frutti di bosco e spezie, affinato in botti di rovere.</p>
       </div>
       <div class="wine-card">
-        <img src="https://source.unsplash.com/300x300/?white-wine" alt="Vino bianco">
+        <img src="https://source.unsplash.com/300x300/?white-wine" alt="Vino bianco" />
         <h3>Bianco Plotegher</h3>
         <p>Fresco e minerale, ideale per accompagnare piatti della tradizione trentina.</p>
       </div>
     </div>
   </section>
 
-  <section id="visite">
+  <section id="visite" data-aos="fade-up">
     <h2>Visite e Degustazioni</h2>
     <p>Vieni a scoprire il nostro maso, partecipa alle degustazioni e immergiti nella storia del vino trentino. Prenota la tua visita scrivendoci tramite i contatti qui sotto.</p>
   </section>
 
-  <section id="contatti">
+  <section id="contatti" data-aos="fade-up">
     <h2>Contattaci</h2>
-    <p>Email: <a href="mailto:info@cantinagremes.it">info@cantinagremes.it</a><br>
-    Telefono: +39 0461 000000<br>
+    <p>Email: <a href="mailto:info@cantinagremes.it">info@cantinagremes.it</a><br />
+    Telefono: +39 0461 000000<br />
     Maso Plotegher, 38060 Aldeno (TN)</p>
   </section>
 
   <footer>
     <p>&copy; 2025 Cantina Gremes | Designed with ❤️ nel Trentino Alto Adige</p>
   </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    // Mostra lo stemma dopo la fine dell'animazione typing (3s)
+    setTimeout(() => {
+      document.getElementById('stemma').style.opacity = '1';
+    }, 3000);
+  </script>
 </body>
 </html>
