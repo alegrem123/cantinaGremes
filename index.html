@@ -81,6 +81,50 @@
       text-decoration: none;
       font-weight: 600;
     }
+.hamburger { /* AGGIUNTO */
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-container { /* AGGIUNTO */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.nav-links { /* AGGIUNTO */
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: var(--color-primary);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    text-align: center;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
     section {
       padding: 3rem 2rem;
       max-width: 1000px;
@@ -231,16 +275,20 @@
   <div class="hero-overlay"></div>
 </div>
 
+<nav>
+  <div class="nav-container">
+    <div class="hamburger" onclick="toggleMenu()">Menu ☰</div>
+    <div class="nav-links">
+      <a href="#chi-siamo">Chi Siamo</a>
+      <a href="#vini">I Nostri Vini</a>
+      <a href="#visite">Visite</a>
+      <a href="#contatti">Contatti</a>
+      <a href="#location">Dove Trovarci</a>
+      <a href="#galleria">Galleria</a>
+    </div>
+  </div>
+</nav>
 
-  <nav>
-    <a href="#chi-siamo">Chi Siamo</a>
-    <a href="#vini">I Nostri Vini</a>
-    <a href="#visite">Visite</a>
-    <a href="#contatti">Contatti</a>
-    <a href="#location">Dove Trovarci</a>
-    <a href="#galleria">Galleria</a>
-
-  </nav>
 
   <section id="chi-siamo" data-aos="fade-up">
     <h2>Chi Siamo</h2>
@@ -339,5 +387,11 @@
   </script>
   <script src="https://cdn.botpress.cloud/webchat/v3.1/inject.js"></script>
 <script src="https://files.bpcontent.cloud/2025/07/20/12/20250720125658-PACEFLHM.js"></script>
+<script>
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  }
+</script>
+
 </body>
 </html>
