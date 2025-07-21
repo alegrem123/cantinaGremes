@@ -128,6 +128,13 @@
   .hamburger {
     display: block;
   }
+  nav {
+    height: 60px;
+    background-color: var(--color-primary);
+  }
+  html {
+    scroll-padding-top: 60px;
+  }
 }
 
 
@@ -292,6 +299,33 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* adatta se il tuo nav è alto ~100px */
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-primary);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    padding: 0.3rem;
+    text-align: center;
+    z-index: 999;
+
+    /* ✨ animazione */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .nav-links.active {
+    max-height: 500px; /* abbastanza spazio per i link */
+  }
+}
 
   </style>
 </head>
@@ -442,9 +476,29 @@ Alla Cantina Gremes, ogni bottiglia racconta una storia: fatta di famiglia, di f
 <script src="https://files.bpcontent.cloud/2025/07/20/12/20250720125658-PACEFLHM.js"></script>
 <script>
   function toggleMenu() {
-    document.querySelector('.nav-links').classList.toggle('active');
+    const navLinks = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger');
+
+    navLinks.classList.toggle('active');
+
+    // Cambia testo del bottone (opzionale)
+    if (navLinks.classList.contains('active')) {
+      hamburger.textContent = '✖';
+    } else {
+      hamburger.textContent = 'Menu ☰';
+    }
   }
+
+  // Chiude il menu quando clicchi su un link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('active');
+      document.querySelector('.hamburger').textContent = 'Menu ☰';
+    });
+  });
 </script>
+
+
 
 </body>
 </html>
