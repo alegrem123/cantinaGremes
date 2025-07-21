@@ -69,12 +69,18 @@
   border-right: none;
 }
 
-    nav {
-      background-color: var(--color-primary);
-      display: flex;
-      justify-content: center;
-      padding: 1rem;
-    }
+   nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
     nav a {
       color: white;
       margin: 0 1rem;
@@ -255,6 +261,36 @@
     align-items: center; /* centra gli elementi */
   }
 }
+.social-icons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1); /* rende bianche le icone nere */
+  transition: transform 0.2s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 600px) {
+  .social-icons {
+    top: 15px;
+    right: 15px;
+  }
+
+  .social-icons img {
+    width: 22px;
+    height: 22px;
+  }
+}
 
 
   </style>
@@ -269,6 +305,16 @@
     class="hero-video"
     src="immagini/pouringWine.mp4"
   ></video>
+  <div class="social-icons">
+ 
+  <a href="https://www.instagram.com/gremes_vini" target="_blank" aria-label="Instagram">
+    <img src="immagini/instagram.png" alt="Instagram" />
+  </a> 
+  <a href="https://www.facebook.com/tuapagina" target="_blank" aria-label="Facebook">
+    <img src="immagini/facebook.png" alt="Facebook" />
+  </a>
+</div>
+
   <div class="hero-content">
     <img id="logo-gremes" src="immagini/logoGremes.png" alt="Logo Cantina Gremes" />
   </div>
@@ -279,25 +325,31 @@
   <div class="nav-container">
     <div class="hamburger" onclick="toggleMenu()">Menu ☰</div>
     <div class="nav-links">
-      <a href="#chi-siamo">Chi Siamo</a>
-      <a href="#vini">I Nostri Vini</a>
+      <a href="#chi-siamo">Chi Sono</a>
+      <a href="#vini">I Miei Vini</a>
       <a href="#visite">Visite</a>
-      <a href="#contatti">Contatti</a>
-      <a href="#location">Dove Trovarci</a>
       <a href="#galleria">Galleria</a>
+      <a href="#contatti">Contatti</a>
+      <a href="#location">Dove Trovarmi</a>
     </div>
   </div>
 </nav>
 
 
   <section id="chi-siamo" data-aos="fade-up">
-    <h2>Chi Siamo</h2>
-    <p>La Cantina Gremes nasce nella quiete del Maso Plotegher, un luogo dove la passione per il vino si tramanda di generazione in generazione. Coltiviamo con cura le nostre vigne, rispettando la natura e valorizzando i vitigni autoctoni.</p>
+    <h2>Chi Sono</h2>
+    <p>La Cantina Gremes nasce nella quiete e nell’incanto del Maso Plotegher, un angolo suggestivo del Trentino dove il tempo sembra rallentare e la natura si fa custode di antiche tradizioni. Qui, tra filari ordinati e profumi di terra, si tramanda da generazioni una profonda passione per il vino, coltivata con dedizione e rispetto.
+
+Ogni giorno, ci prendiamo cura delle nostre vigne con gesti pazienti e consapevoli, seguendo i ritmi della terra e scegliendo pratiche sostenibili che esaltano le peculiarità del territorio. Crediamo nella valorizzazione dei vitigni autoctoni, autentica espressione della nostra identità, e nella vinificazione artigianale, che unisce innovazione e memoria contadina.
+
+Alla Cantina Gremes, ogni bottiglia racconta una storia: fatta di famiglia, di fatica, di stagioni che si rincorrono e di un legame profondo con il luogo che chiamiamo casa.
+
+</p>
   </section>
 
   <section id="vini" data-aos="fade-up">
-    <h2>I Nostri Vini</h2>
-    <div class="grid">
+        <h2>I Miei Vini</h2>
+        <div class="grid">
       <div class="wine-card">
         <img src="immagini/vinoRosso.jpg" alt="Vino rosso" />
         <h3>Rosso Gremes</h3>
@@ -320,12 +372,7 @@
     </div>
   </section>
 
-  <section id="contatti" data-aos="fade-up">
-    <h2>Contattaci</h2>
-    <p>Email: <a href="mailto:info@cantinagremes.it">info@cantinagremes.it</a><br />
-    Telefono: +39 0461 000000<br />
-    Maso Plotegher, 38060 Aldeno (TN)</p>
-  </section>
+  
   <section id="galleria" data-aos="fade-up">
   <h2>Galleria</h2>
 
@@ -359,9 +406,15 @@
     <img src="immagini/vigna4.jpg" alt="Vigna 4" data-aos="fade-up" />-->
   </div>  
 </section>
+<section id="contatti" data-aos="fade-up">
+    <h2>Contatti</h2>
+    <p>Email: <a href="mailto:info@cantinagremes.it">info@cantinagremes.it</a><br />
+    Telefono: +39 0461 000000<br />
+    Maso Plotegher, 38060 Aldeno (TN)</p>
+  </section>
 
   <section id="location" data-aos="fade-up">
-  <h2>Dove trovarci</h2>
+  <h2>Dove trovarmi</h2>
   <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2954.360432571116!2d11.099924226036272!3d45.96859167004233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smaso%20plotegher!5e0!3m2!1sit!2sit!4v1753021969051!5m2!1sit!2sit" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
 
