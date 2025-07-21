@@ -25,41 +25,39 @@
       color: #333;
       line-height: 1.6;
     }
-    .hero {
-      height: 100vh;
-      background: url('immagini/hero1.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      text-align: center;
-      color: white;
-      flex-direction: column;
-      padding: 0 1rem;
-    }
-    .hero-content {
-      display: inline-block;
-      position: relative;
-    }
-    .hero h1.typing {
-      font-family: 'Great Vibes', cursive;
-      font-size: 6rem;
-      color: #bfa76f;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 2px solid #bfa76f;
-      width: 0;
-      animation: typing 3s steps(20, end) forwards, blink 0.7s step-end infinite;
-      margin-bottom: 1rem;
-    }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 18ch }
-    }
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
+   .hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  flex-direction: column;
+  padding: 0 1rem;
+  background-color: #111; /* fallback se il video non parte */
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.9); /* scurisce il video */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
     #stemma {
       opacity: 0;
       width: 250px;
@@ -67,6 +65,10 @@
       transition: opacity 1s ease;
       filter: drop-shadow(0 0 4px rgba(183, 28, 28, 0.7));
     }
+    .hero h1.typing.done {
+  border-right: none;
+}
+
     nav {
       background-color: var(--color-primary);
       display: flex;
@@ -90,11 +92,37 @@
       margin-bottom: 1rem;
       color: var(--color-primary);
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  align-items: center; /* centra verticalmente video e immagini */
+}
+
+.videoDrink {
+  width: 100%;
+  max-width: 200px; /* limita larghezza video */
+  border-radius: 8px;
+  justify-self: center;
+}
+
+.maso {
+  max-width: 300px; /* immagine più piccola */
+  width: 100%;
+  height: auto;
+  justify-self: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.randomVigna {
+  max-width: 300px; /* immagine più piccola */
+    width: 100%;
+    height: auto;
+    justify-self: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
     .wine-card {
       background: white;
       padding: 1rem;
@@ -126,16 +154,83 @@
     font-size: 2rem;
   }
 }
+#logo-gremes {
+  width: 400px;
+  max-width: 80%;
+  opacity: 0;
+  animation: fadeInLogo 2.5s ease-out forwards;
+  margin-right: 21px;
+}
+
+@keyframes fadeInLogo {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+.hero-content {
+  z-index: 2;
+}
+@media (max-width: 600px) {
+  #logo-gremes {
+    width: 180px;
+  }
+}
+.visite-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.visite-content p {
+  flex: 1;
+  margin: 0;
+}
+
+.visite-content img {
+  width: 250px;  /* dimensione contenuta */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  flex-shrink: 0;
+}
+
+  @media (max-width: 768px) {
+  .visite-content {
+    flex-direction: column; /* imposta la direzione a colonna su schermi piccoli */
+    align-items: center; /* centra gli elementi */
+  }
+}
+
 
   </style>
 </head>
 <body>
   <div class="hero">
-    <div class="hero-content">
-      <h1 class="typing">Cantina Gremes</h1>
-      <img id="stemma" src="immagini/vino.png" alt="Stemma Cantina Gremes" />
-    </div>
+  <video 
+    autoplay 
+    muted 
+    loop 
+    playsinline
+    class="hero-video"
+    src="immagini/pouringWine.mp4"
+  ></video>
+  <div class="hero-content">
+    <img id="logo-gremes" src="immagini/logoGremes.png" alt="Logo Cantina Gremes" />
   </div>
+  <div class="hero-overlay"></div>
+</div>
+
 
   <nav>
     <a href="#chi-siamo">Chi Siamo</a>
@@ -170,7 +265,11 @@
 
   <section id="visite" data-aos="fade-up">
     <h2>Visite e Degustazioni</h2>
-    <p>Vieni a scoprire il nostro maso, partecipa alle degustazioni e immergiti nella storia del vino trentino. Prenota la tua visita scrivendoci tramite i contatti qui sotto.</p>
+    <div class="visite-content">
+    
+    <p>Vieni a scoprire il fascino autentico del nostro maso, un luogo ricco di tradizione e passione che racconta la storia secolare del vino trentino. Ti invitiamo a partecipare alle nostre visite guidate, durante le quali potrai esplorare i vigneti curati con amore, conoscere le tecniche di coltivazione sostenibile e osservare da vicino le fasi di produzione che rendono unici i nostri vini. Le degustazioni, condotte da esperti sommelier, ti offriranno l’opportunità di assaporare una selezione di vini pregiati, abbinati a prodotti locali genuini, per un’esperienza sensoriale completa e indimenticabile. Prenota la tua visita con anticipo scrivendoci tramite i contatti qui sotto: saremo felici di accoglierti e condividere con te la nostra passione per il territorio e il buon bere.</p>
+    <img src="immagini/degustazione.jpg" alt="Degustazione vini"/>
+    </div>
   </section>
 
   <section id="contatti" data-aos="fade-up">
@@ -197,10 +296,19 @@
   </div>
 
   <div class="grid">
-    <img src="immagini/vigna1.jpg" alt="Vigna 1" data-aos="fade-up" />
-    <img src="immagini/vigna2.jpg" alt="Vigna 2" data-aos="fade-up" />
-    <img src="immagini/vigna3.jpg" alt="Vigna 3" data-aos="fade-up" />
-    <img src="immagini/vigna4.jpg" alt="Vigna 4" data-aos="fade-up" />
+    <video 
+    src="immagini/videoDrink.mp4" 
+    autoplay 
+    muted   
+    loop 
+    playsinline 
+    style="width:100%; border-radius:8px; display:block;"
+    class = "videoDrink"
+    ></video>
+    <img src="immagini/maso.jpg" alt="Vigna 2" class="maso" data-aos="fade-up" />
+    <img src="immagini/vigneRandom.jpg" alt="Vigna 3" class="randomVigna" data-aos="fade-up" />
+    <!--<img src="immagini/vigna3.jpg" alt="Vigna 3" data-aos="fade-up" />
+    <img src="immagini/vigna4.jpg" alt="Vigna 4" data-aos="fade-up" />-->
   </div>  
 </section>
 
@@ -225,7 +333,9 @@
     // Mostra lo stemma dopo la fine dell'animazione typing (3s)
     setTimeout(() => {
       document.getElementById('stemma').style.opacity = '1';
-    }, 3000);
+      const title = document.querySelector('.hero h1.typing');
+      title.classList.add('done'); // Rimuove il cursore lampeggiante
+    }, 2000);
   </script>
   <script src="https://cdn.botpress.cloud/webchat/v3.1/inject.js"></script>
 <script src="https://files.bpcontent.cloud/2025/07/20/12/20250720125658-PACEFLHM.js"></script>
