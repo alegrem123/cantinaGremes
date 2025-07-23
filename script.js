@@ -1,0 +1,34 @@
+// script.js
+
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    // Mostra lo stemma dopo la fine dell'animazione typing (3s)
+    setTimeout(() => {
+      document.getElementById('stemma').style.opacity = '1';
+      const title = document.querySelector('.hero h1.typing');
+      title.classList.add('done'); // Rimuove il cursore lampeggiante
+    }, 2000);
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger');
+
+    navLinks.classList.toggle('active');
+
+    // Cambia testo del bottone (opzionale)
+    if (navLinks.classList.contains('active')) {
+      hamburger.textContent = '✖';
+    } else {
+      hamburger.textContent = 'Menu ☰';
+    }
+  }
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('active');
+      document.querySelector('.hamburger').textContent = 'Menu ☰';
+    });
+  });
+

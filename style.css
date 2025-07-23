@@ -1,0 +1,335 @@
+
+    :root {
+      --color-primary: #7b1e1e;
+      --color-secondary: #f4f1ec;
+      --color-accent: #a28f5b;
+      --font-title: 'Playfair Display', serif;
+      --font-body: 'Open Sans', sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-secondary);
+      color: #333;
+      line-height: 1.6;
+    }
+   .hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  flex-direction: column;
+  padding: 0 1rem;
+  background-color: #111; /* fallback se il video non parte */
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.9); /* scurisce il video */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+    #stemma {
+      opacity: 0;
+      width: 250px;
+      margin: 0 auto;
+      transition: opacity 1s ease;
+      filter: drop-shadow(0 0 4px rgba(183, 28, 28, 0.7));
+    }
+    .hero h1.typing.done {
+  border-right: none;
+}
+
+   nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+.hamburger { /* AGGIUNTO */
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-container { /* AGGIUNTO */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.nav-links { /* AGGIUNTO */
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: var(--color-primary);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    text-align: center;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+  nav {
+    height: 60px;
+    background-color: var(--color-primary);
+  }
+  html {
+    scroll-padding-top: 60px;
+  }
+}
+
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h2 {
+      font-family: var(--font-title);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--color-primary);
+    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  align-items: center; /* centra verticalmente video e immagini */
+}
+
+.videoDrink {
+  width: 100%;
+  max-width: 200px; /* limita larghezza video */
+  border-radius: 8px;
+  justify-self: center;
+}
+
+.maso {
+  max-width: 300px; /* immagine più piccola */
+  width: 100%;
+  height: auto;
+  justify-self: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.randomVigna {
+  max-width: 300px; /* immagine più piccola */
+    width: 100%;
+    height: auto;
+    justify-self: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+    .wine-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .wine-card:hover {
+      transform: translateY(-5px);
+    }
+    .wine-card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+   @media (max-width: 600px) {
+  #stemma {
+    width: 150px; /* dimezza la dimensione su mobile */
+  }
+
+  .hero h1.typing {
+    font-size: 2rem;
+  }
+}
+#logo-gremes {
+  width: 400px;
+  max-width: 80%;
+  opacity: 0;
+  animation: fadeInLogo 2.5s ease-out forwards;
+  margin-right: 21px;
+}
+
+@keyframes fadeInLogo {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+.hero-content {
+  z-index: 2;
+}
+@media (max-width: 600px) {
+  #logo-gremes {
+    width: 180px;
+  }
+}
+.visite-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.visite-content p {
+  flex: 1;
+  margin: 0;
+}
+
+.visite-content img {
+  width: 250px;  /* dimensione contenuta */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  flex-shrink: 0;
+}
+
+  @media (max-width: 768px) {
+  .visite-content {
+    flex-direction: column; /* imposta la direzione a colonna su schermi piccoli */
+    align-items: center; /* centra gli elementi */
+  }
+}
+.social-icons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1); /* rende bianche le icone nere */
+  transition: transform 0.2s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 600px) {
+  .social-icons {
+    top: 15px;
+    right: 15px;
+  }
+
+  .social-icons img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* adatta se il tuo nav è alto ~100px */
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-primary);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    padding: 0.3rem;
+    text-align: center;
+    z-index: 999;
+
+    /* ✨ animazione */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .nav-links.active {
+    max-height: 500px; /* abbastanza spazio per i link */
+  }
+}
+.acquista-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  margin-top: 0.8rem;
+  transition: background 0.3s ease;
+}
+.acquista-btn:hover {
+  background-color: #5e1414;
+}
+
