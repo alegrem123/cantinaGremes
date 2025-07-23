@@ -326,6 +326,21 @@ html {
     max-height: 500px; /* abbastanza spazio per i link */
   }
 }
+.acquista-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  margin-top: 0.8rem;
+  transition: background 0.3s ease;
+}
+.acquista-btn:hover {
+  background-color: #5e1414;
+}
+
 
   </style>
 </head>
@@ -362,6 +377,7 @@ html {
       <a href="#chi-siamo">Chi Sono</a>
       <a href="#vini">I Miei Vini</a>
       <a href="#visite">Visite</a>
+      <a href="#esperienze">Esperienze</a>
       <a href="#galleria">Galleria</a>
       <a href="#contatti">Contatti</a>
       <a href="#location">Dove Trovarmi</a>
@@ -407,7 +423,45 @@ Alla Cantina Gremes, ogni bottiglia racconta una storia: fatta di famiglia, di f
   </section>
 
   
-  <section id="galleria" data-aos="fade-up">
+ 
+<section id="esperienze" data-aos="fade-up" style="background-color:#fdf9f4; padding: 4rem 2rem;">
+  <div style="max-width: 800px; margin: auto; text-align: center;">
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--color-primary); margin-bottom: 1rem;">Esperienze Gremes</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 3rem;">Porta a casa il sapore autentico del Trentino o vieni a viverlo di persona tra le nostre vigne.</p>
+
+    <div class="grid" style="gap: 2rem;">
+      
+      <!-- Box degustazione -->
+      <div class="wine-card" style="text-align: left;">
+        <img src="immagini/box-vini.jpg" alt="Box degustazione" />
+        <h3>Box Degustazione Gremes</h3>
+        <p>Tre bottiglie selezionate tra i nostri migliori vini: Rosso Gremes, Bianco Plotegher e un'etichetta stagionale in edizione limitata. Include note di degustazione personalizzate.</p>
+        <ul style="margin: 0.8rem 0 1rem 1rem; font-size: 0.95rem;">
+          <li>📦 Spedizione inclusa</li>
+          <li>🍷 Produzione artigianale</li>
+          <li>✍️ Messaggio del vignaiolo incluso</li>
+        </ul>
+        <a href="https://gremes.gumroad.com/l/box" target="_blank" class="acquista-btn">Acquista ora</a>
+      </div>
+
+      <!-- Visita guidata -->
+      <div class="wine-card" style="text-align: left;">
+        <img src="immagini/visita-cantina.jpg" alt="Visita in cantina" />
+        <h3>Visita & Degustazione</h3>
+        <p>Scopri il nostro maso, passeggia tra i filari, visita la cantina e degusta i vini Gremes accompagnati da prodotti locali, in un'esperienza immersiva nel cuore del Trentino.</p>
+        <ul style="margin: 0.8rem 0 1rem 1rem; font-size: 0.95rem;">
+          <li>🚶‍♂️ Tour del vigneto e della cantina</li>
+          <li>🍇 Degustazione guidata di 3 vini</li>
+          <li>🧀 Tagliere con prodotti tipici</li>
+        </ul>
+        <a href="https://ko-fi.com/gremes/visita" target="_blank" class="acquista-btn">Prenota ora</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+ <section id="galleria" data-aos="fade-up">
   <h2>Galleria</h2>
 
   <!-- Video prima delle immagini -->
@@ -451,8 +505,6 @@ Alla Cantina Gremes, ogni bottiglia racconta una storia: fatta di famiglia, di f
   <h2>Dove trovarmi</h2>
   <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2954.360432571116!2d11.099924226036272!3d45.96859167004233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smaso%20plotegher!5e0!3m2!1sit!2sit!4v1753021969051!5m2!1sit!2sit" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
-
-
   <footer>
     <p>&copy; 2025 Cantina Gremes | Designed with ❤️ nel Trentino Alto Adige</p>
   </footer>
