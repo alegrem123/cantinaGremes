@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleProd.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+
+    <title>Document</title>
+</head>
+<body>
+    <div style="height: 20px;"> </div>  
+    <div id="nav-placeholder"></div>
+    <div class="prodotto-page">
+  <div class="prodotto-img">
+    <img src="immagini/imgRossoProd.png" alt="Vino Rosso Gremes">
+  </div>
+  <div class="prodotto-info">
+    <h1>Vino Rosso Gremes</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime expedita cumque, repudiandae officiis est amet vero labore aut minus sed, eveniet id hic nulla iste sint cupiditate sapiente debitis similique.lorem Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque quibusdam possimus itaque beatae architecto? Fugit quisquam vitae dolor molestiae nisi cum et cumque aperiam ipsum? Quibusdam rerum fugiat ex saepe? Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores illo maiores culpa quaerat autem eveniet voluptas alias nam eaque. Magni, quod voluptatibus! Error officiis eius et magnam in a atque! lorem</p>
+    <a href="https://www.tannico.it/products/vermentino-di-sardegna-doc-cala-reale-2024-sella-mosca-138728" class="acquista-btn-prodPage">Vai all'acquisto</a>
+  </div>
+</div>
+    
+    <section class="caratteristiche-vino">
+
+  <div class="caratteristica" data-aos="fade-up" data-aos-delay="0">
+    <h3>SAPORE</h3>
+    <p>Fresco ed elegante con note agrumate di cedro e limone che accompagnano una buona sapidità</p>
+  </div>
+  <div class="caratteristica" data-aos="fade-up" data-aos-delay="150">
+    <h3>PROFUMO</h3>
+    <p>Delicati sentori di fiori bianchi, pesca gialla e cedro</p>
+  </div>
+  <div class="caratteristica" data-aos="fade-up" data-aos-delay="300">
+    <h3>ABBINAMENTI</h3>
+    <p>Ottimo in aperitivo o con piatti di pesce e carne alla brace</p>
+  </div>
+</section>
+
+<section class="vinificazione-section" data-aos="fade-up">
+  <h2 class="vinificazione-title">Vinificazione</h2>
+  <div class="vinificazione-chart-wrapper" data-aos="fade-up">
+    <canvas id="uvaChart"></canvas>
+    <div class="legend-container">
+      <p><strong>Nebbiolo</strong> 60%</p>
+      <p><strong>Barbera</strong> 25%</p>
+      <p><strong>Dolcetto</strong> 15%</p>
+    </div>
+  </div>
+</section>
+
+
+
+ <footer style="margin-top: 20px; border-top: 1px solid transparent;">
+  <p>&copy; 2023 Cantina Gremes. Tutti i diritti riservati.</p>
+</footer>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(function() {
+  $("#nav-placeholder").load("nav.html");
+  AOS.init();
+});</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="script.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.botpress.cloud/webchat/v3.1/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/07/20/12/20250720125658-PACEFLHM.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const ctx = document.getElementById('uvaChart').getContext('2d');
+  const data = {
+    labels: ['Nebbiolo', 'Barbera', 'Dolcetto'],
+    datasets: [{
+      label: 'Composizione Uva',
+      data: [60, 25, 15],
+      backgroundColor: ['#8a1538', '#d9895b', '#c7b198'],
+      borderColor: '#fff',
+      borderWidth: 2
+    }]
+  };
+
+  new Chart(ctx, {
+    type: 'pie',
+    data: data,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false }, // nascondi legenda default
+        tooltip: {
+          callbacks: {
+            label: context => `${context.label}: ${context.raw}%`
+          }
+        }
+      }
+    }
+  });
+
+  // Qui scriviamo le percentuali a lato
+  const container = document.getElementById('uvaPercentuali');
+  data.labels.forEach((label, i) => {
+    const percent = data.datasets[0].data[i];
+    const color = data.datasets[0].backgroundColor[i];
+    const item = document.createElement('div');
+    item.style.marginBottom = '0.6rem';
+    item.style.display = 'flex';
+    item.style.alignItems = 'center';
+    // piccolo quadratino colorato
+    const colorBox = document.createElement('span');
+    colorBox.style.width = '16px';
+    colorBox.style.height = '16px';
+    colorBox.style.backgroundColor = color;
+    colorBox.style.display = 'inline-block';
+    colorBox.style.marginRight = '0.6rem';
+    colorBox.style.borderRadius = '3px';
+
+    // testo percentuale
+    const text = document.createElement('span');
+    text.textContent = `${label}: ${percent}%`;
+
+    item.appendChild(colorBox);
+    item.appendChild(text);
+    container.appendChild(item);
+  });
+});
+</script>
+</body>
+</html>

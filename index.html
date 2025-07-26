@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cantina Gremes - Maso Plotegher, Aldeno</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <!-- esempio con FontAwesome -->
    <link rel="stylesheet" href="style.css"/>
@@ -37,32 +39,15 @@
   </div>
   <div class="hero-overlay"></div>
 </div>
-
-<nav>
-  <div class="nav-container">
-    <div class="hamburger" onclick="toggleMenu()">Menu ☰</div>
-    <div class="nav-links">
-      <a href="#chi-siamo">Chi Sono</a>
-      <a href="#vini">I Miei Vini</a>
-      <a href="#visite">Visite</a>
-      <a href="#esperienze">Esperienze</a>
-      <a href="#galleria">Galleria</a>
-      <a href="#contatti">Contatti</a>
-      <a href="#location">Dove Trovarmi</a>
-    </div>
-  </div>
-</nav>
-
-
+<div id="nav-placeholder" style="display: contents;"></div>
   <section id="chi-siamo" data-aos="fade-up">
-    <h2>Chi Sono</h2>
+    <div class="left-side"><h2>Chi Sono</h2></div>
+    <div class="right-side">
     <p>La Cantina Gremes nasce nella quiete e nell’incanto del Maso Plotegher, un angolo suggestivo del Trentino dove il tempo sembra rallentare e la natura si fa custode di antiche tradizioni. Qui, tra filari ordinati e profumi di terra, si tramanda da generazioni una profonda passione per il vino, coltivata con dedizione e rispetto.
-
 Ogni giorno, ci prendiamo cura delle nostre vigne con gesti pazienti e consapevoli, seguendo i ritmi della terra e scegliendo pratiche sostenibili che esaltano le peculiarità del territorio. Crediamo nella valorizzazione dei vitigni autoctoni, autentica espressione della nostra identità, e nella vinificazione artigianale, che unisce innovazione e memoria contadina.
-
 Alla Cantina Gremes, ogni bottiglia racconta una storia: fatta di famiglia, di fatica, di stagioni che si rincorrono e di un legame profondo con il luogo che chiamiamo casa.
-
 </p>
+</div>
   </section>
 <section id="vini" data-aos="fade-up">
   <h2>I Miei Vini</h2>
@@ -76,7 +61,7 @@ Alla Cantina Gremes, ogni bottiglia racconta una storia: fatta di famiglia, di f
           <h3>Rosso Gremes</h3>
           <img src="immagini/vinoRosso.jpg" alt="Vino Rosso" />
           <p>Un rosso elegante con note di frutti di bosco e spezie, affinato in botti di rovere.</p>
-          <a href="https://www.tannico.it/products/trento-brut-doc-millesimato-2021-altemasi" target="_blank" class="acquista-btn" style="text-align: center;">Acquista ora</a>
+          <a href="vinoRosso.html" target="_blank" class="acquista-btn" style="text-align: center;">Scopri di più</a>
         </div>
       </div>
 
@@ -125,7 +110,7 @@ Alla Cantina Gremes, ogni bottiglia racconta una storia: fatta di famiglia, di f
     <div class="grid" style="gap: 2rem;">
       
       <!-- Box degustazione -->
-      <div class="wine-card" style="text-align: left;">
+      <div class="wine-experience" style="text-align: left;">
         <h3 style="text-align: center; margin-bottom: 2rem;" >Adotta una vigna</h3>
         
         <img src="immagini/adottaVigna.jpg" alt="Adotta Vigna" />
@@ -140,7 +125,7 @@ Alla Cantina Gremes, ogni bottiglia racconta una storia: fatta di famiglia, di f
       </div>
 
       <!-- Visita guidata -->
-      <div class="wine-card" style="text-align: left;">
+      <div class="wine-experience" style="text-align: left;">
         <h3 style="text-align: center; margin-bottom: 2rem;">Visita & Degustazione</h3>
         <img src="immagini/cantinaEsp.jpg" alt="Visita in cantina" />
         

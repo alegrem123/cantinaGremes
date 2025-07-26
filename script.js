@@ -48,3 +48,25 @@ const viniSwiper = new Swiper('.vini-swiper', {
     }
   }
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+  fetch('nav.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('nav-placeholder').innerHTML = data;
+
+      // Ora che la nav è caricata, collega gli eventi
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          document.querySelector('.nav-links').classList.remove('active');
+          document.querySelector('.hamburger').textContent = 'Menu ☰';
+        });
+      });
+    })
+    .catch(err => {
+      console.error('Errore caricamento nav:', err);
+    });
+});
+
+
+

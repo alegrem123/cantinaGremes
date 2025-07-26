@@ -1,0 +1,149 @@
+
+.prodotto-page {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.prodotto-img {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prodotto-img img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.prodotto-info {
+  flex: 1;
+  min-width: 300px;
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 1rem;
+}
+
+.prodotto-info h1 {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prodotto-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+.acquista-btn-prodPage {
+  background-color: #8a1538;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+  display: inline-block;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  width: auto;
+  align-self: flex-start;
+}
+
+.acquista-btn-prodPage:hover {
+  background-color: #a61b45;
+}
+
+.caratteristiche-vino {
+  max-width: 1200px;      /* larghezza massima */
+  margin: 0 auto;         /* margini automatici per centrare */
+  background-color: #f2f0e9;
+  display: flex;
+  justify-content: space-around;
+  padding: 3rem 1rem;
+  text-align: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #d8d6ce;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+
+.caratteristica {
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+}
+
+.caratteristica h3 {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #6a5d48;
+  margin-bottom: 0.5rem;
+}
+
+.caratteristica p {
+  color: #7a7368;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+.vinificazione-section {
+  margin-top: 20px;
+  padding: 4rem 1rem;
+  background-color: #f2f0e9;
+  text-align: center;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.vinificazione-title {
+  font-size: 2rem;
+  color: #6a5d48;
+  margin-bottom: 2rem;
+  font-family: var(--font-title, serif);
+}
+
+.vinificazione-chart-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+.vinificazione-chart-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 600px;  /* larghezza totale per grafico + legenda */
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+#uvaChart {
+  max-width: 300px; /* limita larghezza grafico */
+  width: 100%;
+  height: auto;
+}
+
+.legend-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #6a5d48;
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 100px;
+}
+.legend-container p {
+  margin: 0.2rem 0;
+}
