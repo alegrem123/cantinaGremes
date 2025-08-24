@@ -404,4 +404,41 @@ html {
   color: #8a1538;
 }
 
+.slider {
+  position: relative;
+  max-width: 900px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+}
+
+.slide.active {
+  display: block;
+  animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+.slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slider .prev { left: 10px; }
+.slider .next { right: 10px; }
 

@@ -142,39 +142,33 @@ Alla Cantina Gremes, ogni bottiglia racconta una storia: fatta di famiglia, di f
   </div>
 </section>
 
- <section id="galleria" data-aos="fade-up">
+ <<section id="galleria" data-aos="fade-up">
   <h2>Galleria</h2>
 
-  <!-- Video prima delle immagini -->
-  <div style="margin-bottom: 2rem; text-align:center;">
-    <video 
-      src="immagini/video.mp4" 
-      autoplay 
-      muted 
-      loop 
-      playsinline 
-      style="width:100%; max-height:500px; border-radius:8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);"
-    >
-      Il tuo browser non supporta il video.
-    </video>
-  </div>
+  <div class="slider">
+    <!-- Slides -->
+    <div class="slide active">
+      <img src="immagini/trecime.jpg" style="border-radius: 8px; width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.3);" />
+    </div>
 
-  <div class="grid">
-    <video 
-    src="immagini/videoDrink.mp4" 
-    autoplay 
-    muted   
-    loop 
-    playsinline 
-    style="width:100%; border-radius:8px; display:block;"
-    class = "videoDrink"
-    ></video>
-    <img src="immagini/maso.jpg" alt="Vigna 2" class="maso" data-aos="fade-up" />
-    <img src="immagini/vigneRandom.jpg" alt="Vigna 3" class="randomVigna" data-aos="fade-up" />
-    <!--<img src="immagini/vigna3.jpg" alt="Vigna 3" data-aos="fade-up" />
-    <img src="immagini/vigna4.jpg" alt="Vigna 4" data-aos="fade-up" />-->
-  </div>  
+    <div class="slide">
+      <img src="immagini/uvaVednemmia.jpg" style="border-radius: 8px; width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.3);" />
+    </div>
+
+    <div class="slide">
+      <img src="immagini/maso.jpg" alt="Vigna 2" style="width:100%; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.3);" />
+    </div>
+
+    <div class="slide">
+      <img src="immagini/vigneRandom.jpg" alt="Vigna 3" style="width:100%; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.3);" />
+    </div>
+
+    <!-- Pulsanti -->
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
 </section>
+
 <section id="contatti" data-aos="fade-up">
     <h2>Contatti</h2>
     <p>Email: <a href="mailto:info@cantinagremes.it">info@cantinagremes.it</a><br />
