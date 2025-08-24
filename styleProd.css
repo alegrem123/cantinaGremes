@@ -147,3 +147,56 @@
 .legend-container p {
   margin: 0.2rem 0;
 }
+.roadmap-vino {
+  position: relative;
+  background-color: #f2f0e9;
+  padding: 4rem 1rem;
+  margin-top: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 8px 24px rgba(123, 17, 19, 0.15);
+  font-size: 1.2rem;
+  line-height: 25px;
+}
+
+.roadmap-vino::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 50%;
+  width: 6px;
+  background: #b8860b;
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+.roadmap-step-vino {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+.roadmap-step-vino::before {
+  content: attr(data-step);
+  position: absolute;
+  top: 30px;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: #b8860b;
+  color: #7b1113;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 40px;
+}
+
+.roadmap-step-vino.left { left: 0; text-align: right; }
+.roadmap-step-vino.left::before { right: -20px; }
+.roadmap-step-vino.right { left: 50%; text-align: left; }
+.roadmap-step-vino.right::before { left: -20px; }
+
+/* ...puoi copiare qui gli stili dei box .content, immagini e video dal tuo primo codice */
+
