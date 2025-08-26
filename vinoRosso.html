@@ -8,7 +8,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
 
-    <title>Document</title>
+    <title>Vino Rosso</title>
 </head>
 <body>
     <div style="height: 20px;"> </div>  
@@ -43,72 +43,65 @@
 <section class="vinificazione-section" data-aos="fade-up">
   <h2 class="vinificazione-title">Vinificazione</h2>
   <div class="vinificazione-chart-wrapper" data-aos="fade-up">
-    <canvas id="uvaChart"></canvas>
-    <div class="legend-container">
-      <p><strong>Nebbiolo</strong> 60%</p>
-      <p><strong>Barbera</strong> 25%</p>
-      <p><strong>Dolcetto</strong> 15%</p>
+    <div class="chart-container">
+      <canvas id="uvaChart"></canvas>
+    </div>
+    <div class="legend-container" id="uvaPercentuali">
+      <!-- Qui verranno inserite le percentuali via JS -->
     </div>
   </div>
 </section>
 
+
 <section class="roadmap-vino">
+  <div class="timeline-line"></div>
 
-  <article class="roadmap-step-vino left" data-step="1" data-aos="fade-up" data-aos-delay="0">
-    <div class="content">
-      <h3>Preparazione e pulizia attrezzi</h3><br>
-      <p>Selezioniamo le migliori uve per iniziare il processo.</p><br>
+  <div class="timeline-step" data-aos="fade-up" data-aos-delay="0">
+    <div class="step-number">1</div>
+    <div class="step-content">
+      <h3>Preparazione e pulizia attrezzi</h3>
+      <p>Selezioniamo le migliori uve per iniziare il processo.</p>
+      <video src="immagini/step11.mp4" autoplay loop muted playsinline></video>
     </div>
-    <video src="immagini/step11.mp4" 
-       autoplay 
-       loop 
-       muted
-       playsinline 
-       style="border-radius: 10px; width: 100%;">
-</video>
-  </article>
+  </div>
 
-  <article class="roadmap-step-vino right" data-step="2" data-aos="fade-up" data-aos-delay="150">
-   
-    <div class="content">
-      <h3>Vendemmia</h3> <br>
-      <p>La parte più importante, la vendemmia. </p><br>
-    </div> <img src="immagini/step2.jpg" loading="lazy" style="overflow: hidden; border-radius: 10px; width: 100%;"></video>
-  </article>
-
-  <article class="roadmap-step-vino left" data-step="3" data-aos="fade-up" data-aos-delay="300">
-    <div class="content">
-      <h3>Trasporto uva in cantina</h3><br>
-      <p>Trasportiamo l'uva in sentieri e strade impervie nelle vigne.</p><br>
+  <div class="timeline-step" data-aos="fade-up" data-aos-delay="150">
+    <div class="step-number">2</div>
+    <div class="step-content">
+      <h3>Vendemmia</h3>
+      <p>La parte più importante, la vendemmia.</p>
+      <img src="immagini/step2.jpg" alt="Vendemmia">
     </div>
-    <video src="immagini/step3.mp4" 
-       autoplay 
-       loop 
-       muted
-       playsinline 
-       style="border-radius: 10px; width: 100%;">
-</video>
-  </article>
-
-  <article class="roadmap-step-vino right" data-step="4" data-aos="fade-up" data-aos-delay="450">
-    
-    <div class="content">
-      <h3>Controllo qualità</h3><br>
-      <p>Processo di cernita per il controllo qualità dell'uva prima di passarla al torchio.</p><br>
+  </div>
+  <div class="timeline-step">
+    <div class="step-number">3</div>
+    <div class="step-content">
+      <h3>Trasporto uva in cantina</h3>
+      <p>Trasportiamo l'uva in sentieri e strade impervie nelle vigne.</p>
+      <video src="immagini/step3.mp4" autoplay loop muted playsinline></video>
     </div>
-    <img src="immagini/step4.jpg" loading="lazy" style="border-radius: 10px; width: 100%;">
+  </div>
 
-  </article>
-
-  <article class="roadmap-step-vino left" data-step="5"data-aos="fade-up" data-aos-delay="600">
-    <div class="content">
-      <h3>Imbottigliamento</h3><br>
-      <p>Il vino viene imbottigliato pronto per essere gustato.</p><br>
+  <div class="timeline-step">
+    <div class="step-number">4</div>
+    <div class="step-content">
+      <h3>Controllo qualità</h3>
+      <p>Processo di cernita per il controllo qualità dell'uva prima di passarla al torchio.</p>
+      <img src="immagini/step4.jpg" loading="lazy" alt="Controllo qualità">
     </div>
-    <img src="https://images.unsplash.com/photo-1510626176961-4b68d04b8f7f?auto=format&fit=crop&w=400&q=80" alt="Imbottigliamento del vino" loading="lazy" style="border-radius: 10px; width: 100%;" />
-  </article>
+  </div>
+
+  <div class="timeline-step">
+    <div class="step-number">5</div>
+    <div class="step-content">
+      <h3>Imbottigliamento</h3>
+      <p>Il vino viene imbottigliato pronto per essere gustato.</p>
+      <img src="immagini/imbottigliamento.jpg" loading="lazy">
+    </div>
+  </div>
+
+  <!-- Continua con gli altri step -->
 </section>
-
 
 
 
@@ -152,36 +145,41 @@ window.addEventListener('DOMContentLoaded', () => {
     data: data,
     options: {
       responsive: true,
+      maintainAspectRatio: false, // fondamentale per il mobile
       plugins: {
-        legend: { display: false }, // nascondi legenda default
+        legend: { display: false },
         tooltip: {
           callbacks: {
             label: context => `${context.label}: ${context.raw}%`
           }
         }
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true
       }
     }
   });
 
-  // Qui scriviamo le percentuali a lato
+  // Inserisco percentuali personalizzate accanto al grafico
   const container = document.getElementById('uvaPercentuali');
+  container.innerHTML = ''; // svuota prima
   data.labels.forEach((label, i) => {
     const percent = data.datasets[0].data[i];
     const color = data.datasets[0].backgroundColor[i];
+
     const item = document.createElement('div');
-    item.style.marginBottom = '0.6rem';
     item.style.display = 'flex';
     item.style.alignItems = 'center';
-    // piccolo quadratino colorato
+    item.style.gap = '0.4rem';
+
     const colorBox = document.createElement('span');
     colorBox.style.width = '16px';
     colorBox.style.height = '16px';
     colorBox.style.backgroundColor = color;
-    colorBox.style.display = 'inline-block';
-    colorBox.style.marginRight = '0.6rem';
     colorBox.style.borderRadius = '3px';
+    colorBox.style.display = 'inline-block';
 
-    // testo percentuale
     const text = document.createElement('span');
     text.textContent = `${label}: ${percent}%`;
 
@@ -190,6 +188,7 @@ window.addEventListener('DOMContentLoaded', () => {
     container.appendChild(item);
   });
 });
+
 </script>
 </body>
 </html>

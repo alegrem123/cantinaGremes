@@ -1,4 +1,8 @@
 
+body{
+  color: #4a4a4a  !important;
+}
+
 .prodotto-page {
   display: flex;
   flex-wrap: wrap;
@@ -60,8 +64,7 @@
 }
 
 .acquista-btn-prodPage:hover {
-  background-color: #a61b45;
-}
+background: linear-gradient(45deg, #a61b45, #c62a55)}
 
 .caratteristiche-vino {
   max-width: 1200px;      /* larghezza massima */
@@ -120,20 +123,54 @@
 }
 .vinificazione-chart-wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 2rem;
-  max-width: 600px;  /* larghezza totale per grafico + legenda */
+  flex-wrap: wrap;
+  max-width: 600px;
   margin: 0 auto;
   padding: 0 1rem;
   box-sizing: border-box;
 }
 
-#uvaChart {
-  max-width: 300px; /* limita larghezza grafico */
+.chart-container {
+  position: relative;
   width: 100%;
-  height: auto;
+  max-width: 300px; /* desktop */
+  aspect-ratio: 1/1; /* mantiene quadrato */
+  margin: auto;
 }
+
+.chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.legend-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #6a5d48;
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 100px;
+}
+
+/* Mobile: grafico sopra, legenda sotto */
+@media (max-width: 600px) {
+  .vinificazione-chart-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .legend-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
 
 .legend-container {
   display: flex;
@@ -149,54 +186,91 @@
 }
 .roadmap-vino {
   position: relative;
-  background-color: #f2f0e9;
-  padding: 4rem 1rem;
-  margin-top: 40px;
-  border-radius: 20px;
-  overflow: hidden;
   max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 8px 24px rgba(123, 17, 19, 0.15);
-  font-size: 1.2rem;
-  line-height: 25px;
+  margin: 50px auto;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+
 }
 
-.roadmap-vino::before {
-  content: '';
+.timeline-line {
   position: absolute;
-  top: 0; bottom: 0; left: 50%;
-  width: 6px;
-  background: #b8860b;
+  left: 50%;
   transform: translateX(-50%);
+  width: 6px;
+  background: linear-gradient(to bottom, #b8860b, #d4af37);
+  height: 100%;
   border-radius: 3px;
 }
 
-.roadmap-step-vino {
+.timeline-step {
   position: relative;
-  width: 50%;
-  padding: 20px 40px;
-  box-sizing: border-box;
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.roadmap-step-vino::before {
-  content: attr(data-step);
-  position: absolute;
-  top: 30px;
-  width: 40px; height: 40px;
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: #8a1538;
+  color: #fff;
   border-radius: 50%;
-  background: #b8860b;
-  color: #7b1113;
-  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
   font-size: 1.2rem;
-  text-align: center;
-  line-height: 40px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.roadmap-step-vino.left { left: 0; text-align: right; }
-.roadmap-step-vino.left::before { right: -20px; }
-.roadmap-step-vino.right { left: 50%; text-align: left; }
-.roadmap-step-vino.right::before { left: -20px; }
+.step-content {
+  background-color: #f2f0e9;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+}
 
-/* ...puoi copiare qui gli stili dei box .content, immagini e video dal tuo primo codice */
+.step-content h3 {
+  color: #6a5d48;
+  margin-bottom: 0.5rem;
+}
+
+.step-content p {
+  color: #7a7368;
+  margin-bottom: 1rem;
+}
+
+.step-content img,
+.step-content video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Mobile adjustments (small screens) */
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 10px;
+  }
+
+  .timeline-step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .step-number {
+    flex-shrink: 0;
+  }
+
+  .step-content {
+    width: calc(100% - 60px);
+    text-align: left;
+  }
+}
 
